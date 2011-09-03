@@ -95,7 +95,7 @@ cite{font-weight:700;font-style:normal;}
 .avatar-list .avatar{float:left;margin:18px;}
 .chk{float:left;margin:0 6px 10px 0;}
 .inline{float:right;width:32%;height:130px;border:1px solid #ccc;}
-.thread dd.avatar img,.profile-avatar img,.avatar-list .avatar img{max-width:150px;}
+.thread dd.avatar img,.profile-avatar img,.avatar-list .avatar img{width:64px;height:64px}
 .home-left{float:left;width:68%;}
 .home-right{float:right;width:30%;}
 .home-left .topics-index .tcr{width:40%;}
