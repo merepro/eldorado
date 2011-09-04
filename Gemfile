@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.9"
+gem "rails", "2.3.11"
 gem "paperclip", "2.3.0"
 gem "right_aws", "1.9.0"
 gem "right_http_connection", "1.2.4"
