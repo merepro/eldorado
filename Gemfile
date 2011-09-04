@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem "rails", "2.3.11"
 gem "paperclip", "2.3.0"
-gem "right_aws", "1.9.0"
+gem "right_aws", "2.1.0"
 gem "right_http_connection", "1.3.0"
 gem "searchlogic", "2.3.9"
 gem "will_paginate", "2.3.15"
