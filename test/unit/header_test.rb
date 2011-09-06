@@ -20,18 +20,18 @@ class HeaderTest < ActiveSupport::TestCase
   test "attachment_file_name is unique" do
     r1 = Header.make
     r2 = Header.create { |r| r.attachment_file_name = r1.attachment_file_name }
-    assert r2.errors.on(:attachment_file_name)
+    assert r2.errors.get(:attachment_file_name)
   end
     
   test "belongs_to user" do
     u = User.make
     r = Header.make(:user => u)
-    assert r.user, u
+    assert_equal r.user, u
   end
   
   test "validates presence of user_id" do
     r = Header.create { |r| r.user = nil }
-    assert r.errors.on(:user_id)
+    assert r.errors.get(:user_id)
   end
   
   test "random" do

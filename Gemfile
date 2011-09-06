@@ -29,6 +29,9 @@ gem 'prototype-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'faker', '~> 0.9.5'
+  gem 'machinist', '>= 2.0.0.beta2'
+  gem 'mocha', '~> 0.9.12'
 end
 
 gem 'will_paginate', '~> 3.0.0'
