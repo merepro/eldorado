@@ -1,7 +1,7 @@
 <% if current_controller == 'categories' %>
   <div class="info-left">
     <span class="title"><%=h @category %></span>
-    <span class="detail"> &laquo; <%= @forums.map { |forum| link_to "#{h(forum)}", forum } * ", " %></span>
+    <span class="detail"> &laquo; <%= (@forums.map { |forum| link_to "#{h(forum)}", forum } * ", ").html_safe %></span>
   </div>
 <% elsif current_controller == 'forums' %>
   <div class="info-left">
@@ -59,15 +59,15 @@
     <div class="nav nav-footer">
       <p class="nav-left">
         <% if @category.forums.blank? %>
-          <%= link_to I18n.t(:create_a_new_forum)+' &raquo;', new_forum_path(:category_id => @category.id) %>
+          <%= link_to (I18n.t(:create_a_new_forum)+' &raquo;').html_safe, new_forum_path(:category_id => @category.id) %>
         <% else %>
-          <%= link_to I18n.t(:start_a_new_topic)+' &raquo;', new_topic_path %>
+          <%= link_to (I18n.t(:start_a_new_topic)+' &raquo;').html_safe, new_topic_path %>
         <% end %>
       </p>
     </div>
   <% elsif current_controller == 'forums' %>
     <div class="nav nav-footer">
-      <p class="nav-left"><%= link_to I18n.t(:start_a_new_topic)+' &raquo;', new_topic_path(:forum_id => @forum.id) %></p>
+      <p class="nav-left"><%= link_to (I18n.t(:start_a_new_topic)+' &raquo;').html_safe, new_topic_path(:forum_id => @forum.id) %></p>
     </div>
   <% end %>
 <% end %>

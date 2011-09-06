@@ -1,6 +1,6 @@
-<%= error_messages_for :article %>
+<%= render "shared/error_messages", :target => @article %>
 <% @article = Article.new unless @article %>
-<% form_for @article do |f| %>
+<%= form_for @article do |f| %>
   <div class="box" id="box-articles-new">
     <span class="top"><%=t :new_article %></span>
     <p class="label"><label for="article_title"><%=t :title %></label></p>

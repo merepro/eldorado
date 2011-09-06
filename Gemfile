@@ -1,20 +1,42 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
-gem "rails", "2.3.11"
-gem "paperclip", "2.3.0"
-gem "right_aws", "2.1.0"
-gem "right_http_connection", "1.3.0"
-gem "searchlogic", "2.3.9"
-gem "will_paginate", "2.3.15"
-gem "hoptoad_notifier", "2.2.2"
-gem "toadhopper", "1.0.3"
+gem 'rails', '~> 3.1.0'
 
-group :development do
-  gem "sqlite3-ruby", "1.2.5", :require => "sqlite3"
+# Bundle edge Rails instead:
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+
+gem 'sqlite3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
 end
+
+gem 'prototype-rails'
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  gem "faker", "0.3.1"
-  gem "mocha", "0.9.8"
-  gem "machinist", "1.0.6"
+  # Pretty printed test output
+  gem 'turn', :require => false
 end
+
+gem 'will_paginate', '~> 3.0.0'
+gem 'rails_config', '~> 0.2.4'
+gem 'paperclip', '~> 2.4.0'
+gem 'bb-ruby', '~> 0.9.5'
+gem 'meta_search', '~> 1.1.1'
+gem 'aws-s3', '~> 0.6.2'
+
+# TODO: Find alternative
+gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'

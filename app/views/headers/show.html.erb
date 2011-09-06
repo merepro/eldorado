@@ -5,8 +5,8 @@
 <div class="info-right">
   Votes (<span id="remote"><%= render :partial => 'votes.html.erb' %></span>)
   <% if logged_in? %>
-    <%= link_to_remote "+", :url => {:action => 'vote_up'}, :update => 'remote' %>
-    <%= link_to_remote "&ndash;", :url => {:action => 'vote_down'}, :update => 'remote' %>
+    <%= link_to "+", :remote => true, :url => {:action => 'vote_up'}, :update => 'remote' %>
+    <%= link_to "&ndash;".html_safe, :remote => true, :url => {:action => 'vote_down'}, :update => 'remote' %>
   <% end %>
 </div>
 <div class="clear"> </div>

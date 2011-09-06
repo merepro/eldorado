@@ -1,6 +1,6 @@
 <% if logged_in? %>
     <% @comment = Comment.new unless @comment %>
-    <% form_for @comment do |f| -%>
+    <%= form_for @comment do |f| -%>
     <div class="box-comment" id="box-comments-new">
       <%= f.hidden_field :resource_id, :value => @article.id %>
       <%= f.hidden_field :resource_type, :value => @article.class %>

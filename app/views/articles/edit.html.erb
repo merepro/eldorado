@@ -1,5 +1,5 @@
-<%= error_messages_for :article %>
-<% form_for @article do |f| %>
+<%= render "shared/error_messages", :target => @article %>
+<%= form_for @article do |f| %>
   <div class="box" id="box-articles-edit">
     <span class="top"><%=t :edit_article %></span>
     <p class="label"><label for="article_title"><%=t :title %></label></p>

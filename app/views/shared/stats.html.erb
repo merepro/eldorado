@@ -1,7 +1,7 @@
 <div class="nav-stats">
   <p class="nav-left">
     <% unless @users_online.blank? %>
-      <%=t :online %>: <%= @users_online.map { |user| link_to "#{h(user)}", user } * ", " %>
+      <%=t :online %>: <%= (@users_online.map { |user| link_to "#{h(user)}", user } * ", ").html_safe %>
     <% end %>
   </p>
   <p class="nav-right">

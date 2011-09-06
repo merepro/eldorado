@@ -3,9 +3,9 @@
   <select id="topic_forum_id" name="topic[forum_id]">
     <option disabled="disabled" value=""><%=t :select_a_forum %></option>
     <% @forum_id = @topic.forum_id unless @topic.forum_id.blank?; @forum_id ||= params[:forum_id].to_i %>
-    <% for category in Category.find(:all, :order => 'categories.position') %>
+    <% for category in Category.find(:all, :order => 'categories.position') do %>
       <option disabled="disabled" value=""><%= h(category) %></option>
-      <% for forum in category.forums %>
+      <% for forum in category.forums do %>
         <option value="<%= forum.id %>"<%= ' selected="selected"' if forum.id == @forum_id %>>&nbsp;&nbsp;<%= h(forum) %></option>
       <% end %>
     <% end %>

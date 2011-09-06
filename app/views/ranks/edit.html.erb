@@ -1,5 +1,5 @@
-<%= error_messages_for :rank %>
-<% form_for @rank do |f| %>
+<%= render "shared/error_messages", :target => @rank %>
+<%= form_for @rank do |f| %>
   <div class="box" id="box-ranks-edit">
     <span class="top"><%=t :edit_rank %></span>
     <p class="label"><label for="rank_title"><%=t :title %></label></p>

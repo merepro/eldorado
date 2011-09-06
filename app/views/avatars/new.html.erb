@@ -1,6 +1,6 @@
-<%= error_messages_for :avatar %>
 <% @avatar = Avatar.new unless @avatar %>
-<% form_for @avatar, :html => { :multipart => true } do |f| -%>
+<%= render "shared/error_messages", :target => @avatar %>
+<%= form_for @avatar, :html => { :multipart => true } do |f| -%>
   <div class="box" id="box-avatars-new">
     <span class="top"><%=t :new_avatar %></span>
     <p><%= f.file_field :attachment %></p>

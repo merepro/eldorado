@@ -1,5 +1,5 @@
-<%= error_messages_for :comment %>
-<% form_for @comment do |f| %>
+<%= render "shared/error_messages", :target => @comment %>
+<%= form_for @comment do |f| %>
   <div class="box" id="box-comments-edit">
     <span class="top"><%=t :edit_comment %></span>
     <p class="label"><label for="comment_body"><%=t :body %></label></p>

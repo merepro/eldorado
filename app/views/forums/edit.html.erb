@@ -1,6 +1,6 @@
-<%= error_messages_for :forum %>
+<%= render "shared/error_messages", :target => @forum %>
 <div class="box" id="box-categories-new">
-  <% form_for @forum do |f| %>
+  <%= form_for @forum do |f| %>
     <span class="top"><%=t :edit_forum %></span>
     <p class="label"><label for="forum_name"><%=t :name %></label></p>
     <p><%= f.text_field :name, :class => 'text-field' %></p>

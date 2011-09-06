@@ -7,11 +7,11 @@
 </div>
 <div class="info-right">
   <span class="title">&nbsp;</span>
-  <span class="detail"><%=t :view_all %> <%= link_to I18n.t(:posts), posts_path %> <%=t :or %> <%= link_to I18n.t(:topics)+' &raquo;', topics_path %></span>
+  <span class="detail"><%=t :view_all %> <%= link_to I18n.t(:posts), posts_path %> <%=t :or %> <%= link_to (I18n.t(:topics)+' &raquo;').html_safe, topics_path %></span>
 </div>
 <div class="clear"> </div>
 
-<% for category in @categories %>
+<% for category in @categories do %>
     <table cellspacing="0" class="forums-index">
       <thead>
         <tr>
@@ -25,7 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <% for forum in category.forums %>
+        <% for forum in category.forums do %>
           <tr>
             <td class="tci">
               <% if forum.last_topic.nil? %>
@@ -52,6 +52,6 @@
             </td>
           </tr>
         <% end %>
-      </tbody>  
+      </tbody>
     </table>
 <% end %>

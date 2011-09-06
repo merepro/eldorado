@@ -1,7 +1,6 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-
   attr_accessible :login, :email, :password, :password_confirmation, :avatar, :signature, :bio, :time_zone, :ban_message, :banned_until
   attr_reader :password
 
@@ -42,9 +41,9 @@ class User < ActiveRecord::Base
   before_create :set_defaults
   before_create :make_admin_if_first_user
 
-  named_scope :blog_authors, :conditions => 'articles_count > 0', :order => 'articles_count desc'
-  named_scope :chatting, lambda {|*args| {:conditions => ['chatting_at > ?', Time.now.utc-30.seconds], :order => 'login asc'}}
-  named_scope :online, lambda {|*args| {:conditions => ['logged_out = ? and (online_at > ? or chatting_at > ?)', false, Time.now.utc-5.minutes, Time.now.utc-30.seconds], :order => 'login asc'}}
+  scope :blog_authors, where('articles_count > 0').order('articles_count desc')
+  scope :chatting, lambda {|*args| where('chatting_at > ?', Time.now.utc-30.seconds).order('login asc')}
+  scope :online, lambda {|*args| where('logged_out = ? and (online_at > ? or chatting_at > ?)', false, Time.now.utc-5.minutes, Time.now.utc-30.seconds).order('login asc')}
 
   def updated_at
     profile_updated_at

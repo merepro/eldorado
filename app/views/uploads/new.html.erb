@@ -1,6 +1,6 @@
-<%= error_messages_for :upload %>
 <% @upload = Upload.new unless @upload %>
-<% form_for @upload, :html => { :multipart => true } do |f| -%>
+<%= render "shared/error_messages", :target => @upload %>
+<%= form_for @upload, :html => { :multipart => true } do |f| -%>
   <div class="box" id="box-uploads-new">
     <span class="top"><%=t :new_file %></span>
     <p id="file_upload"><%= f.file_field :attachment %></p>

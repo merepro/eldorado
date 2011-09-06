@@ -19,15 +19,15 @@ Screenshot
 Install
 ----------
 
-    git clone git://github.com/trevorturk/eldorado.git
+    git clone git://github.com/qpingu/eldorado.git
     cd eldorado
     cp config/database.example.yml config/database.yml
-    cp config/config.example.yml config/config.yml
-    gem install rails -v=2.3.9
-    rake gems:install
+    cp config/settings/development.example.yml config/settings/development.yml
+    gem install bundler
+    bundle
     rake db:create
     rake db:schema:load
-    script/server
+    rails server
 
 Visit <http://localhost:3000/> to see the app running locally.
 
@@ -51,6 +51,7 @@ MIT License
 -----------
 
 Copyright (c) 2006-* Trevor Turk
+Copyright (c) 2011-* Luke Curley
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

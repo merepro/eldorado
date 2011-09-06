@@ -5,12 +5,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="generator" content="http://github.com/trevorturk/eldorado/" />
   <meta name="description" content="<%=h page_title -%>" />
-  <title><%=h page_title -%></title>
+  <title><%= page_title %></title>
   <%= render :file => 'shared/rss' unless @settings.private? %>
-  <%= javascript_include_tag "prototype", "audio_player", "calendar_date_select", "prototip", "highlight", :cache => true %>
-  <%= favicon_tag %>
-  <%= header_css %>
-  <%= theme_css %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= header_css.html_safe %>
+  <%= theme_css.html_safe %>
+  <%= csrf_meta_tags %>
+  <%= favicon_tag.html_safe %>
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>
@@ -29,14 +31,14 @@
     </div>
     <div class="content">
       <%= render :file => 'shared/nav' %>
-      <div class="announcement"><%= @settings.announcement if current_controller == 'home' -%></div>
+      <div class="announcement"><%= @settings.announcement.html_safe if current_controller == 'home' -%></div>
       <%= render :partial => 'search/form.html.erb' if current_controller == 'search' -%>
       <%= render :file => 'shared/flash' -%>
       <%= yield %>
       <%= render :file => 'shared/nav2' -%>
       <%= render :file => 'shared/stats' unless locked_out? -%>
     </div>
-    <div class="footer"><%= @settings.footer -%></div>
+    <div class="footer"><%= @settings.footer.html_safe %></div>
   </div>
 </body>
 </html>

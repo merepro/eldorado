@@ -38,10 +38,11 @@ module ApplicationHelper
 
   def favicon_tag
     return "<link rel=\"shortcut icon\" href=\"#{@settings.favicon}\" />\n" unless @settings.favicon.blank?
+    ""
   end
 
-  def avatar_for(user)
-    image_tag user.avatar unless user.avatar.nil?
+  def avatar_for(user, style = nil)
+    image_tag user.current_avatar.attachment.url(style) unless user.avatar.nil?
   end
 
   def rank_for(user)
@@ -67,8 +68,8 @@ module ApplicationHelper
   end
 
   def enabled?(name)
-    return true if CONFIG['disabled_tabs'].nil?
-    !CONFIG['disabled_tabs'].include?(name)
+    return true if Settings.disabled_tabs.nil?
+    !Settings.disabled_tabs.include?(name)
   end
 
   def is_new?(item)
@@ -83,14 +84,14 @@ module ApplicationHelper
 
   def icon_for(item)
     if item && is_new?(item)
-      '<div class="icon inew"><!-- --></div>'
+      '<div class="icon inew"><!-- --></div>'.html_safe
     else
-      '<div class="icon"><!-- --></div>'
+      '<div class="icon"><!-- --></div>'.html_safe
     end
   end
 
   def bb(text)
-    auto_link(simple_format(bbcodeize(sanitize(h(text))))) {|t| truncate(t, :length => 50)}
+    h(text).bbcode_to_html.html_safe
   end
 
   def current_page(collection)

@@ -17,7 +17,7 @@
     <% end %>
     <div class="info-left">
       <span class="title"><%=t :looking_for_something %></span>&nbsp;
-      <span class="detail"><%= link_to  I18n.t(:visit_blog_archives)+' &raquo;', blog_archives_path %></span>
+      <span class="detail"><%= link_to (I18n.t(:visit_blog_archives)+' &raquo;').html_safe, blog_archives_path %></span>
     </div>
   <% else %>
     <div class="info-left">

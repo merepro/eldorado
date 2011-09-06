@@ -32,7 +32,7 @@
 <% if current_controller == 'categories' and current_action == 'show' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> &raquo; <%=h @category %>
+    <%= link_to I18n.t(:forum), forums_path %> &raquo; <%=h @category %>
   </div>
   <div class="info-right">
     <% if admin? %>
@@ -102,7 +102,7 @@
 <% if current_controller == 'forums' and current_action == 'show' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> &raquo; 
+    <%= link_to I18n.t(:forum), forums_path %> &raquo; 
     <%= link_to h(@forum.category), @forum.category %> &raquo; <%=h @forum %>
   </div>
   <div class="info-right">
@@ -149,7 +149,7 @@
 <% if current_controller == 'posts' and current_action == 'edit' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
+    <%= link_to I18n.t(:forum), forums_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
     <%= link_to h(@post.topic.forum.category), @post.topic.forum.category %> &raquo; 
     <%= link_to h(@post.topic.forum), @topic.forum %> &raquo;
     <%= link_to h(@post.topic), @post.topic %>
@@ -159,7 +159,7 @@
 <% if current_controller == 'posts' and current_action == 'show' %>
   <div class="info-left" style="margin-top:5px;">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
+    <%= link_to I18n.t(:forum), forums_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
     <%= link_to h(@post.topic.forum.category), @post.topic.forum.category %> &raquo; 
     <%= link_to h(@post.topic.forum), @topic.forum %> &raquo;
     <%= link_to h(@post.topic), @post.topic %>
@@ -195,7 +195,7 @@
 <% if current_controller == 'topics' and current_action == 'index' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> &raquo; <%=t :all_topics %>
+    <%= link_to I18n.t(:forum), forums_path %> &raquo; <%=t :all_topics %>
   </div>
   <div class="info-right">
     <%= will_paginate @topics, :inner_window => 1, :outer_window => 0, :prev_label => '&laquo; '+I18n.t(:prev) %>
@@ -205,7 +205,7 @@
 <% if current_controller == 'topics' and current_action == 'new' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> &raquo; <%=t :new_topic %>
+    <%= link_to I18n.t(:forum), forums_path %> &raquo; <%=t :new_topic %>
   </div>
 <% end %>
 
@@ -219,7 +219,7 @@
 <% if current_controller == 'topics' and current_action == 'show' %>
   <div class="info-left">
     <%= link_to I18n.t(:home), root_path %> &raquo; 
-    <%= link_to I18n.t(:forum), forum_root_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
+    <%= link_to I18n.t(:forum), forums_path %> <%= link_to I18n.t(:topics), topics_path %> &raquo; 
     <%= link_to h(@topic.forum.category), @topic.forum.category %> &raquo; 
     <%= link_to h(@topic.forum), @topic.forum %>
   </div>
@@ -227,7 +227,7 @@
     <% if logged_in? %>
       <% link_text = current_user.subscriptions.include?(@topic) ? I18n.t(:unsubscribe) : I18n.t(:subscribe) %>
       <%= 
-        link_to_remote "<span id='toggle_subscription_text'>#{link_text}</span>", 
+        link_to "<span id='toggle_subscription_text'>#{link_text}</span>".html_safe, :remote => true,
         :url => { :controller => 'subscriptions', :action => 'toggle', :id => @topic.id },
         :update => 'toggle_subscription_text'
       %>

@@ -1,4 +1,4 @@
-<%= error_messages_for :forum %>
+<%= render "shared/error_messages", :target => @forum %>
 <% form_tag forum_path(@forum), :method => :delete do %>
   <div class="box" id="box-forums-confirmation">
     <span class="top"><%=t :delete_forum %></span>

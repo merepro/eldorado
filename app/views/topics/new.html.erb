@@ -1,6 +1,6 @@
-<%= error_messages_for :topic %>
 <% @topic = Topic.new unless @topic %>
-<% form_for @topic do |f| %>
+<%= render "shared/error_messages", :target => @topic %>
+<%= form_for @topic do |f| %>
   <div class="box" id="box-new-new">
     <span class="top"><%=t :new_topic %></span>
     <p class="label"><label for="topic_title"><%=t :title %></label></p>
@@ -20,7 +20,7 @@
       <% if current_action != 'new' %>
         <%= link_to_function I18n.t(:cancel), "$('action').toggle()" %>
       <% else %>
-        <%= link_to I18n.t(:cancel), forum_root_path %>
+        <%= link_to I18n.t(:cancel), forums_path %>
       <% end %>
     </p>
   </div>

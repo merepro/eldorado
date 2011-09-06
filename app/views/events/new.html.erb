@@ -1,6 +1,6 @@
-<%= error_messages_for :event %>
 <% @event = Event.new unless @event %>
-<% form_for @event do |f| %>
+<%= render "shared/error_messages", :target => @event %>
+<%= form_for @event do |f| %>
   <div class="box" id="box-events-new">
     <span class="top"><%=t :new_event %></span>
     <div class="calendar_select"><%= f.calendar_date_select :date, :embedded => true %></div>

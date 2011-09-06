@@ -18,7 +18,7 @@ class UploadsController < ApplicationController
   def create
     @upload = current_user.uploads.new(params[:upload])
     if @upload.save
-      if CONFIG['s3']
+      if Settings.s3
         flash[:notice] = "#{@upload.attachment.url.split('?').first}"
       else
         flash[:notice] = "#{root_url.chop + @upload.attachment.url.split('?').first}"

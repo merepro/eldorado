@@ -1,6 +1,6 @@
-<%= error_messages_for :category %>
+<%= render "shared/error_messages", :target => @category %>
 <div class="box" id="box-categories-edit">
-  <% form_for @category do |f| %>
+  <%= form_for @category do |f| %>
     <span class="top"><%=t :edit_category %></span>
     <p class="label"><label for="category_name"><%=t :name %></label></p>
     <p><%= f.text_field :name, :class => 'text-field' %></p>

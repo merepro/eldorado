@@ -1,6 +1,6 @@
-<%= error_messages_for :header %>
 <% @header = Header.new unless @header %>
-<% form_for @header, :html => { :multipart => true } do |f| -%>
+<%= render "shared/error_messages", :target => @header %>
+<%= form_for @header, :html => { :multipart => true } do |f| -%>
   <div class="box" id="box-headers-new">
     <span class="top"><%=t :new_header %></span>
     <p><%= f.file_field :attachment %></p>

@@ -1,4 +1,4 @@
-<%= error_messages_for :header %>
+<%= render "shared/error_messages", :target => @header %>
 
 <div class="info-left">
   <span class="title"><%=h @header %></span>
@@ -6,7 +6,7 @@
 </div>
 <div class="clear"> </div>
 
-<% form_for @header do |f| -%>
+<%= form_for @header do |f| -%>
   <div class="box" id="box-headers-edit">
     <span class="top"><%=t :edit_header %></span>
     <p class="label"><label for="header_description"><%=t :description %></label></p>

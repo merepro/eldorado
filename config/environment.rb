@@ -1,19 +1,5 @@
-RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
-require File.join(File.dirname(__FILE__), 'boot')
+# Load the rails application
+require File.expand_path('../application', __FILE__)
 
-Rails::Initializer.run do |config|
-  require 'yaml'
-  CONFIG = (YAML.load_file('config/config.yml')[RAILS_ENV] rescue {}).merge(ENV)
-  CONFIG['s3'] = true if CONFIG['s3_access_id'] && CONFIG['s3_secret_key'] && CONFIG['s3_bucket_name']
-
-  # enable (optional) sendgrid support
-  CONFIG['smtp_user_name'] ||= CONFIG['SENDGRID_USERNAME']
-  CONFIG['smtp_password'] ||= CONFIG['SENDGRID_PASSWORD']
-  CONFIG['smtp_domain'] ||= CONFIG['SENDGRID_DOMAIN']
-
-  config.time_zone = 'UTC'
-  config.i18n.default_locale = :en
-  config.active_record.partial_updates = true
-  config.frameworks -= [:active_resource]
-  config.action_controller.session = {:key => CONFIG['session_key'], :secret => CONFIG['session_secret']}
-end
+# Initialize the rails application
+Eldorado::Application.initialize!

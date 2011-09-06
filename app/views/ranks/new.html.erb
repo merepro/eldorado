@@ -1,6 +1,6 @@
-<%= error_messages_for :rank %>
+<%= render "shared/error_messages", :target => @rank %>
 <% @rank = Rank.new unless @rank %>
-<% form_for @rank do |f| %>
+<%= form_for @rank do |f| %>
   <div class="box" id="box-ranks-new">
     <span class="top"><%=t :new_rank %></span>
     <p class="label"><label for="rank_title"><%=t :title %></label></p>

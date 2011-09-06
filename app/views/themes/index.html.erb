@@ -3,7 +3,7 @@
 <div class="box" id="box-themes-index">
   <span class="top"><%=t :themes %></span>
   <% if @themes.empty? %>
-    <p><%= link_to I18n.t(:upload_a_new_theme)+' &raquo;', new_theme_path %></p>
+    <p><%= link_to (I18n.t(:upload_a_new_theme)+' &raquo;').html_safe, new_theme_path %></p>
   <% else %>
     <% for theme in @themes %>
       <p>

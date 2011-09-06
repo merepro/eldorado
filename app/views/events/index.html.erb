@@ -1,7 +1,6 @@
 <% unless current_controller == 'search' %>
   <div class="calendar-large">
-    <%=
-    calendar({:year => @date.year, :month => @date.month}) do |d|
+    <% cal = calendar({:year => @date.year, :month => @date.month}) do |d|
       cell_text = "#{d.mday}" 
       if (d.to_date == Time.now.utc.to_date)
         cell_text = "<b>#{I18n.t(:today)} #{d.mday}</b>" 
@@ -16,6 +15,7 @@
       [cell_text, cell_attrs]
     end
     %>
+    <%= cal.html_safe %>
   </div>
 <% end %>
 

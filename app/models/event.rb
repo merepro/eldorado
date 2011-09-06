@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :title, :description, :date, :user_id
     
-  named_scope :reminders, lambda {|*args| {:conditions => {:reminder => true, :date => Time.now.utc-2.hours..Time.now.utc+6.hours}, :order => 'date asc'}}
+  scope :reminders, lambda {|*args| where(:reminder => true, :date => Time.now.utc-2.hours..Time.now.utc+6.hours).order('date asc')}
   
   def to_s
     title

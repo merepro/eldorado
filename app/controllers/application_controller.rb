@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
-
   helper :all
   protect_from_forgery
-  filter_parameter_logging :password
 
   include AuthenticationSystem, ExceptionHandler
 
@@ -13,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::SettingsNotFound, :with => :default_settings
   rescue_from ActionController::InvalidAuthenticityToken, :with => :generic_error
   rescue_from ActionView::MissingTemplate, :with => :not_found
-  rescue_from WillPaginate::InvalidPage, :with => :invalid_page
+  #TODO alternative: rescue_from WillPaginate::InvalidPage, :with => :invalid_page
 
   def redirect_home
     redirect_to root_path and return false
@@ -41,11 +39,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_action
-    request.path_parameters['action']
+    request.path_parameters[:action]
   end
 
   def current_controller
-    request.path_parameters['controller']
+    request.path_parameters[:controller]
   end
 
   def find_parent_user_or_class
@@ -54,12 +52,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if params[:locale] # user can request a local, I18n.default_locale is the default
-      I18n.locale = params[:locale]
-    elsif CONFIG["locale"] # config/config.yml can specify a default
-      I18n.locale = CONFIG["locale"]
-    else # use the browser's locale settings
-      I18n.locale = request.preferred_language_from I18n.available_locales
-    end
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

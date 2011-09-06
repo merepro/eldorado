@@ -22,7 +22,7 @@
     </li>
   <% end unless @articles.empty? %>
   <% if current_controller == 'search' %>
-    <li class="detail"><%= link_to I18n.t(:visit_blog_archives)+' &raquo;', blog_archives_path, :class => 'text' %></li>
+    <li class="detail"><%= link_to (I18n.t(:visit_blog_archives)+' &raquo;').html_safe, blog_archives_path, :class => 'text' %></li>
   <% end %>
   </ul>
 </div>
