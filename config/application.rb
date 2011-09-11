@@ -44,5 +44,13 @@ module Eldorado
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # A little hacky, loads settings from ENV
+    class ENVWrap
+      def self.load; ENV; end
+    end
+
+    Settings.add_source!(ENVWrap)
+    Settings.reload!
   end
 end
