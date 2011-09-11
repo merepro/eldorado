@@ -91,7 +91,7 @@ module ApplicationHelper
   end
 
   def bb(text, *args)
-    h(text).bbcode_to_html(*args).html_safe
+    text.bbcode_to_html(*args).html_safe
   end
 
   def current_page(collection)
