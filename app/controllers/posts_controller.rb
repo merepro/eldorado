@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     redirect_to root_path and return false unless @topic
     @post = current_user.posts.build(params[:post])
     if @topic.locked
-      redirect_to root_path and return false unless admin? || (current_user == @topic.user) # TODO can this be a conditional before_filter?
+      redirect_to root_path and return false unless admin? # TODO can this be a conditional before_filter?
     end
     @topic.posts_count += 1 # hack to set last_page correctly
     if (@topic.posts << @post)
