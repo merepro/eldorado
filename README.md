@@ -22,9 +22,9 @@ Install
     git clone git://github.com/qpingu/eldorado.git
     cd eldorado
     cp config/database.example.yml config/database.yml
-    cp config/settings/development.example.yml config/settings/development.yml
+    cp config/settings/development.example.yml config/settings/development.local.yml
     gem install bundler
-    bundle
+    bundle install --without production
     rake db:create
     rake db:schema:load
     rails server
@@ -39,7 +39,8 @@ Deploy the app to Heroku:
 
     gem install heroku
     heroku create
-    # set the variables for your production environment in config/config.yml
+    cp config/settings/production.example.yml config/settings/production.local.yml
+    # set the variables for your production environment in config/settings/production.local.yml
     rake s3:create
     rake heroku:config
     git push heroku master

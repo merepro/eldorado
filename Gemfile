@@ -5,7 +5,8 @@ gem 'rails', '~> 3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'sqlite3', :group => :development
+gem 'pg', :group => :production
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,6 +35,8 @@ group :test do
   gem 'machinist', '>= 2.0.0.beta2'
   gem 'mocha', '~> 0.9.12'
 end
+
+gem 'heroku'
 
 gem 'will_paginate', '~> 3.0.0'
 gem 'rails_config', '~> 0.2.4'
