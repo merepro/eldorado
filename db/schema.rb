@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20110911002200) do
 
   create_table "categories", :force => true do |t|
     t.string  "name"
-    t.integer "position", :limit => 255, :default => 0
+    t.integer "position", :default => 0
   end
 
   create_table "comments", :force => true do |t|
@@ -47,11 +47,19 @@ ActiveRecord::Schema.define(:version => 20110911002200) do
     t.datetime "updated_at"
   end
 
+  create_table "config", :force => true do |t|
+    t.integer "associated_id"
+    t.string  "associated_type"
+    t.string  "namespace"
+    t.string  "key",             :limit => 40, :null => false
+    t.string  "value"
+  end
+
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "date"
-    t.boolean  "reminder",    :default => false
+    t.boolean  "reminder"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -143,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20110911002200) do
     t.integer  "last_post_id"
     t.datetime "last_post_at"
     t.integer  "last_post_by"
-    t.boolean  "locked",       :default => false
+    t.boolean  "locked"
     t.boolean  "sticky",       :default => false
     t.integer  "forum_id"
   end
