@@ -41,7 +41,7 @@ module ApplicationHelper
     ""
   end
 
-  def avatar_for(user, style = nil)
+  def avatar_for(user, style = :medium)
     image_tag user.current_avatar.attachment.url(style) unless user.avatar.nil?
   end
 

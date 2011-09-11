@@ -14,8 +14,7 @@ class Avatar < ActiveRecord::Base
     { :storage => :filesystem, :url => "/avatars/:style_:filename" }
   end
 
-  has_attached_file :attachment, { :styles => { :small => "32x32#", :medium =>"64x64#", :large => "184x184#" },
-                                   :default_style => :medium }.merge(storage)
+  has_attached_file :attachment, { :styles => { :small => "32x32#", :medium =>"64x64#", :large => "184x184#" } }.merge(storage)
 
   validates_attachment_presence :attachment
   validates_attachment_size :attachment, :less_than => 500.kilobytes
