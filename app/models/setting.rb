@@ -10,6 +10,7 @@ class Setting < ActiveRecord::Base
   
   def self.defaults
     Setting.new(
+      :announcement => '',
       :title => I18n.t(:title, :scope => :default_settings ),
       :tagline => I18n.t(:tagline, :scope => :default_settings),
       :footer => "<p style=\"text-align:right;margin:0;\">#{I18n.t(:powered_by)} <a href=\"http://github.com/trevorturk/eldorado/\">#{I18n.t(:el_dorado)}</a></p>".html_safe,
