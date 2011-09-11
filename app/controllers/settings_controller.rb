@@ -8,9 +8,9 @@ class SettingsController < ApplicationController
   end
     
   def update 
-    @setting = Setting.find(params[:id])
+    @settings = Setting.find(params[:id])
     params[:setting][:time_zone] = params[:settings][:time_zone] unless params[:settings].nil? # hack for form plural issue
-    @setting.update_attributes(params[:setting])
+    @settings.update_attributes(params[:setting])
     redirect_to settings_path
   end
 end
