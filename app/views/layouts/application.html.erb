@@ -31,7 +31,7 @@
     </div>
     <div class="content">
       <%= render :file => 'shared/nav' %>
-      <div class="announcement"><%= @settings.announcement.html_safe if current_controller == 'home' -%></div>
+      <div class="announcement"><%= "#{ @settings.announcement }".html_safe if current_controller == 'home' -%></div>
       <%= render :partial => 'search/form.html.erb' if current_controller == 'search' -%>
       <%= render :file => 'shared/flash' -%>
       <%= yield %>
