@@ -109,6 +109,7 @@ cite{font-weight:700;font-style:normal;}
 .inew{border-color:#8BB453 #7A9E48 #709142 #799C47;}
 .prototip{position:absolute;}
 .tooltip{position:relative;color:#fff;background-color:#35604d;padding:4px 5px;}
+.post-body .post-votes{padding-left: 12px; padding-bottom: 6px;}
 .post-body img{max-width:100%;}
 .post-body blockquote img{max-width:532px;}
 .post-body blockquote blockquote img{max-width:498px;}
