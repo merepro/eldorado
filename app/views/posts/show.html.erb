@@ -30,18 +30,29 @@
       </td>
       <td class="body">
         <div class="post-body">
-          <%= bb(post.body) %>
-          <% if (post.updated_at > post.created_at + 5.minutes) %>
-            <p class="edited">
-              <%=t :last_edited %>: <%= time_ago_or_time_stamp(post.updated_at, Time.now.utc, true, true) %>
-              <%= I18n.t(:by) + ' ' + h(post.editor) if post.editor %>
-            </p>
-          <% end %>
-          <% if !post.user.signature.blank? %>
-            <hr class="sig-hr" />
-            <div class="sig">
-              <%= bb(post.user.signature) %>
-            </div>
+          <div class="post-votes vote-enabled" style="float:right">
+            <span class="vote-count"><%= render 'posts/votes', :target => post %></span>
+            <% if logged_in? %>
+              <%= link_to "+", vote_up_post_path(post), :remote => true, :class => 'vote-up' %>
+              <%= link_to "&ndash;".html_safe, vote_down_post_path(post), :remote => true, :class => 'vote-down' %>
+            <% end %>
+          </div>
+          <% if post.plusminus <= -20 %>
+            <i><%=t :nuked_post %></i>
+          <% else %>
+            <%= bb(post.body) %>
+            <% if (post.updated_at > post.created_at + 5.minutes) %>
+              <p class="edited">
+                <%=t :last_edited %>: <%= time_ago_or_time_stamp(post.updated_at, Time.now.utc, true, true) %>
+                <%= I18n.t(:by) + ' ' + h(post.editor) if post.editor %>
+              </p>
+            <% end %>
+            <% if !post.user.signature.blank? %>
+              <hr class="sig-hr" />
+              <div class="sig">
+                <%= bb(post.user.signature) %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </td>

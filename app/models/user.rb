@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  acts_as_voter
+  has_karma(:posts, :as => :user)
+
   validates_presence_of     :login, :email, :password_hash
   validates_uniqueness_of   :login, :case_sensitive => false
   validates_length_of       :login, :maximum => 25

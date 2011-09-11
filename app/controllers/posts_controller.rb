@@ -65,4 +65,16 @@ class PostsController < ApplicationController
     @topic = Topic.find(@post.topic.id)
     redirect_to topics_path unless @topic
   end
+
+  def vote_up
+    @post = Post.find(params[:id])
+    @post.vote_up(current_user)
+    render :partial => 'posts/votes', :locals => { :target => @post }
+  end
+
+  def vote_down
+    @post = Post.find(params[:id])
+    @post.vote_down(current_user)
+    render :partial => 'posts/votes', :locals => { :target => @post }
+  end
 end

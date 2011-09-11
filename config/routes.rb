@@ -93,6 +93,8 @@ Eldorado::Application.routes.draw do
     member do
       get 'quote'
       get 'topic'
+      get 'vote_up'
+      get 'vote_down'
     end
   end
   resources :ranks

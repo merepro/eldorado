@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   belongs_to :user,  :counter_cache => true
   belongs_to :editor, :foreign_key => 'updated_by', :class_name => 'User'
   
+  acts_as_voteable
+
   validates_presence_of :user_id, :body
   
   after_create  :update_cached_fields_in_topic, :increment_counter_in_forum, :deliver_subscription
@@ -38,7 +40,15 @@ class Post < ActiveRecord::Base
     post_number = posts.rindex(self.id) + 1
     (post_number.to_f / 30).ceil
   end
-  
+
+  def vote_up(user)
+    user.vote_exclusively_for(self)
+  end
+
+  def vote_down(user)
+    user.vote_exclusively_against(self)
+  end
+
   def to_s
     body
   end

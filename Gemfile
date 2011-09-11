@@ -41,6 +41,7 @@ gem 'paperclip', '~> 2.4.0'
 gem 'bb-ruby', '~> 0.9.5'
 gem 'meta_search', '~> 1.1.1'
 gem 'aws-s3', '~> 0.6.2'
+gem "thumbs_up", "~> 0.4.1"
 
 # TODO: Find alternative
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
