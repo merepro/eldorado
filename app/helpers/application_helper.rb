@@ -100,12 +100,12 @@ module ApplicationHelper
 
   def prev_page(collection)
     num = collection.current_page > 1 && collection.current_page - 1
-    link_to('&laquo; '+I18n.t(:previous_page), { :page => num }) if num
+    link_to("&laquo; #{ I18n.t(:previous_page) }".html_safe, { :page => num }) if num
   end
 
   def next_page(collection)
     num = collection.current_page < collection.total_pages && collection.current_page + 1
-    link_to(I18n.t(:next_page)+' &raquo;', { :page => num }) if num
+    link_to("#{ I18n.t(:next_page) } &raquo;".html_safe, { :page => num }) if num
   end
 
   def t_no_of(item, count = 0)
