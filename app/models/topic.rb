@@ -50,7 +50,7 @@ class Topic < ActiveRecord::Base
   end
   
   def update_cached_fields
-    post = posts.find(:first, :order => 'posts.created_at desc')
+    post = posts.last # TODO: Figure out why created_at wasn't working
     return if post.nil? # return if this was the last post in the thread
     self.class.update_all(['last_post_id = ?, last_post_at = ?, last_post_by = ?', post.id, post.created_at, post.user_id], ['id = ?', self.id])
   end
