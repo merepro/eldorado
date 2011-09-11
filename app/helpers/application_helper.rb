@@ -90,8 +90,8 @@ module ApplicationHelper
     end
   end
 
-  def bb(text)
-    h(text).bbcode_to_html.html_safe
+  def bb(text, *args)
+    h(text).bbcode_to_html(*args).html_safe
   end
 
   def current_page(collection)
