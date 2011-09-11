@@ -95,7 +95,7 @@ class ForumsControllerTest < ActionController::TestCase
     assert_equal old_forum_count-1, Forum.count
     assert_equal old_topic_count-1, Topic.count
     assert_equal old_post_count-1, Post.count
-    assert_redirected_to forum_root_path
+    assert_redirected_to forum_path
   end
   
   def test_should_not_delete_forum_if_not_confirmed

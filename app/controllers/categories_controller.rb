@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_filter :require_admin, :except => [:index, :show]
 
   def index
-    redirect_to forum_root_path
+    redirect_to forum_path
   end
   
   def show
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(params[:category])
     if @category.save
-      redirect_to forum_root_path
+      redirect_to forum_path
     else
       render :action => 'new'
     end
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
       redirect_to confirm_delete_category_path(@category)
     else
       @category.destroy
-      redirect_to forum_root_path
+      redirect_to forum_path
     end
   end
   

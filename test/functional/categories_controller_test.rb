@@ -4,13 +4,13 @@ class CategoriesControllerTest < ActionController::TestCase
 
   def test_should_not_get_index
     get :index
-    assert_redirected_to forum_root_path
+    assert_redirected_to forum_path
     login_as :Administrator
     get :index
-    assert_redirected_to forum_root_path
+    assert_redirected_to forum_path
     login_as :trevor
     get :index
-    assert_redirected_to forum_root_path
+    assert_redirected_to forum_path
   end
   
   def test_should_get_new_if_admin
@@ -98,7 +98,7 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_equal old_forum_count-1, Forum.count
     assert_equal old_topic_count-1, Topic.count
     assert_equal old_post_count-1, Post.count
-    assert_redirected_to forum_root_path
+    assert_redirected_to forum_path
   end
   
   def test_should_not_delete_category_if_not_confirmed

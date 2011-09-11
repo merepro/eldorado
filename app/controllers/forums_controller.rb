@@ -48,7 +48,7 @@ class ForumsController < ApplicationController
       redirect_to confirm_delete_forum_path(@forum)
     else
       @forum.destroy
-      redirect_to forum_root_path
+      redirect_to forum_path
     end
   end
   
