@@ -42,7 +42,7 @@ GEM
       builder
       mime-types
       xml-simple
-    bbcodeizer (0.1.3)
+    bbcodeizer (0.1.4)
     bcrypt-ruby (3.0.0)
     builder (3.0.0)
     cocaine (0.2.0)
@@ -126,7 +126,6 @@ GEM
     rdoc (3.9.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rinku (1.2.2)
     rubyzip (0.9.4)
     sass (3.1.7)
     sass-rails (3.1.0)
@@ -159,7 +158,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3 (~> 0.6.2)
-  bbcodeizer (~> 0.1.3)
+  bbcodeizer (~> 0.1.4)
   coffee-rails (~> 3.1.0)
   faker (~> 0.9.5)
   heroku
@@ -173,7 +172,6 @@ DEPENDENCIES
   prototype_legacy_helper (= 0.0.0)!
   rails (~> 3.1.0)
   rails_config (~> 0.2.4)
-  rinku (~> 1.2.2)
   sass-rails (~> 3.1.0)
   sqlite3
   thumbs_up (~> 0.4.1)

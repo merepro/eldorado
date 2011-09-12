@@ -1,5 +1,3 @@
-require 'rails_rinku'
-
 module ApplicationHelper
 
   def random_string
@@ -93,7 +91,7 @@ module ApplicationHelper
   end
 
   def bb(text, *disable)
-    text = auto_link(BBCodeizer.bbcodeize(h(text), :disabled => disable)) {|t| truncate(t, :length => 50)}
+    text = BBCodeizer.bbcodeize(simple_format(h(text)), :disabled => disable)
     text.html_safe
   end
 
