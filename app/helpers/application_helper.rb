@@ -90,8 +90,8 @@ module ApplicationHelper
     end
   end
 
-  def bb(text, *args)
-    text.bbcode_to_html(*args).html_safe
+  def bb(text, *disable)
+    BBCodeizer.bbcodeize(h(text), :disabled => disable).html_safe
   end
 
   def current_page(collection)

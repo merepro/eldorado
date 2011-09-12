@@ -41,7 +41,7 @@ gem 'heroku'
 gem 'will_paginate', '~> 3.0.0'
 gem 'rails_config', '~> 0.2.4'
 gem 'paperclip', '~> 2.4.0'
-gem 'bb-ruby', '~> 0.9.5'
+gem 'bbcodeizer', '~> 0.1.3'
 gem 'meta_search', '~> 1.1.1'
 gem 'aws-s3', '~> 0.6.2'
 gem "thumbs_up", "~> 0.4.1"
