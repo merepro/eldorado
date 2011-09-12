@@ -44,7 +44,8 @@ gem 'paperclip', '~> 2.4.0'
 gem 'bbcodeizer', '~> 0.1.3'
 gem 'meta_search', '~> 1.1.1'
 gem 'aws-s3', '~> 0.6.2'
-gem "thumbs_up", "~> 0.4.1"
+gem 'thumbs_up', '~> 0.4.1'
+gem 'rinku', '~> 1.2.2', :require => 'rails_rinku'
 
 # TODO: Find alternative
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
