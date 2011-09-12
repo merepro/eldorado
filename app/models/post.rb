@@ -42,11 +42,11 @@ class Post < ActiveRecord::Base
   end
 
   def vote_up(user)
-    user.vote_exclusively_for(self)
+    user.vote_exclusively_for(self) unless user == self.user # don't let users vote on their own posts
   end
 
   def vote_down(user)
-    user.vote_exclusively_against(self)
+    user.vote_exclusively_against(self) unless user == self.user # don't let users vote on their own posts
   end
 
   def to_s
