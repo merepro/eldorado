@@ -1,1 +1,10 @@
-<%= target.plusminus %>
+<%
+  score = case target.plusminus
+    when 0 then 'neutral'
+    when 1..Float::INFINITY then 'positive'
+    else 'negative'
+  end
+%>
+<span class="vote-count vote-<%= score %>">
+  <%= target.plusminus %>
+</span>

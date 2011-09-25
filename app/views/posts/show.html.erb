@@ -10,18 +10,12 @@
         <% end %>
       </th>
       <th class="thr">
-        <div class="post-votes vote-enabled" style="float:right">
-          <span class="vote-count">
-            <% if post.plusminus > 0 %>
-              <font color="FF642A">+<%= render 'posts/votes', :target => post %></font>
-            <% else %>
-              <%= render 'posts/votes', :target => post %>
-            <% end %>
-              <b>Frags</b></span>
-            <% if logged_in? %>
-              <%= link_to "+", vote_up_post_path(post), :remote => true, :class => 'vote-up' %>
-              <%= link_to "&ndash;".html_safe, vote_down_post_path(post), :remote => true, :class => 'vote-down' %>
-            <% end %>
+        <div class="post-votes vote-enabled">
+          <%= render 'posts/votes', :target => post %>
+          <% if logged_in? %>
+            <%= link_to "+", vote_up_post_path(post), :remote => true, :class => 'vote-up' %>
+            <%= link_to "&ndash;".html_safe, vote_down_post_path(post), :remote => true, :class => 'vote-down' %>
+          <% end %>
         </div>
       </th>
     </tr>
