@@ -116,6 +116,8 @@ cite{font-weight:700;font-style:normal;}
 .post-body blockquote blockquote img{max-width:498px;}
 .post-body blockquote blockquote blockquote img{max-width:464px;}
 .post-body blockquote blockquote blockquote blockquote img{max-width:430px;}
+.post-nuked{display:none;}
+.post-nuked-show{font-style:italic;}
 .messages-index img{max-width:477px;}
 .messages-index blockquote img{max-width:445px;}
 .messages-index blockquote blockquote img{max-width:412px;}

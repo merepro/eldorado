@@ -200,6 +200,7 @@ en:
   next_page: Next Page
   themes_info: Themes must be smaller than 50k.
   nuked_post: This post is hidden for scoring too low.
+  show_nuked_post: Show post.
 
   messages:
     delete_category_warning: Deleting a category destroys all of the forums, topics, and posts it contains.
