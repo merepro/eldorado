@@ -35,7 +35,11 @@
           <td class="tci"><%= icon_for(topic) %></td>
           <td class="tcl">
             <span class="topic-status"><%= I18n.t(:sticky) if topic.sticky? %> <%= I18n.t(:locked) if topic.locked? %></span>
-            <%= link_to h(topic), topic %> <%=t :by %> <%=h topic.user %>
+            <%= link_to h(topic), topic %> <% posts = topic.posts.paginate(:page => 1) %>
+            <% if posts.total_pages > 1 %>
+              <%= will_paginate posts, :params => { :controller => :topics, :id => topic }, :outer_window => 2, :previous_label => '', :next_label => '' %>
+            <% end %>
+            <%=t :by %> <%=h topic.user %>
           </td>
           <% if %w(categories topics).include?(current_controller) %>
             <td class="tcl">
