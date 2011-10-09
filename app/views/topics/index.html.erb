@@ -37,7 +37,7 @@
             <span class="topic-status"><%= I18n.t(:sticky) if topic.sticky? %> <%= I18n.t(:locked) if topic.locked? %></span>
             <%= link_to h(topic), topic %> <% posts = topic.posts.paginate(:page => 1) %>
             <% if posts.total_pages > 1 %>
-              <%= will_paginate posts, :params => { :controller => :topics, :id => topic }, :outer_window => 2, :previous_label => '', :next_label => '' %>
+              <%= will_paginate posts, :params => { :controller => :topics, :action => :show, :id => topic }, :outer_window => 2, :previous_label => '', :next_label => '' %>
             <% end %>
             <%=t :by %> <%=h topic.user %>
           </td>
