@@ -1,7 +1,7 @@
 El Dorado
 =========
 
-El Dorado is a full-stack community web application written in Ruby/Rails.
+El Dorado (for NATF2) is a full-stack community web application written in Ruby/Rails.
 It features a forum, event calendar, group chat, file sharing, random headers,
 avatars, themes, and privacy settings.
 
