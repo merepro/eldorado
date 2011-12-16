@@ -19,8 +19,8 @@ Screenshot
 Install
 ----------
 
-    git clone git://github.com/qpingu/eldorado.git
-    cd eldorado
+    git clone git://github.com/dekom/eldorado-natf2.git
+    cd eldorado-natf2
     cp config/database.example.yml config/database.yml
     cp config/settings/development.example.yml config/settings/development.local.yml
     gem install bundler
@@ -53,6 +53,7 @@ MIT License
 
 Copyright (c) 2006-* Trevor Turk
 Copyright (c) 2011-* Luke Curley
+Copyright (c) 2011-* Xing Zhou
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
